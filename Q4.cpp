@@ -1,18 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-int countofdigit(int n){
-    int cnt=0;
-    while(n>0){
-       int lastdigit=n%10;
-        cnt=cnt+1;
-        n=n/10; 
-    }
-    return cnt;
-}
 int main(){
-    int n;
-    cin>>n;
-    countofdigit(n);
-    cout<< countofdigit(n)<<endl;
+    int n1,n2;
+    cin>>n1>>n2;
+    int gcd=1;
+    for(int i=1;i<=min(n1,n2);i++){
+        if(n1%i==0&&n2%i==0){
+            gcd=i;
+        }
+    }
+    int lcm=(n1*n2)/gcd;
+    cout<<lcm<<endl;
     return 0;
 }

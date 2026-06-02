@@ -1,19 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-int productofdigit(int n){
-    int product=1;
-    while(n>0){
-       int lastdigit=n%10;
-        product=product*lastdigit;
-        n=n/10; 
-    }
-    return product;
-}
 int main(){
-    int n;
-    cin>>n;
-    productofdigit(n);
-    cout<< productofdigit(n)<<endl;
+    int n1,n2;
+    cin>>n1>>n2;
+    int gcd=1;
+    for(int i=1;i<=min(n1,n2);i++){
+        if(n1%i==0&&n2%i==0){
+            gcd=i;
+        }
+    }
+    cout<<gcd<<endl;
     return 0;
-
 }

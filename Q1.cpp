@@ -1,19 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
-int sumofdigit(int n){
-    int sum=0;
-    while(n>0){
-       int lastdigit=n%10;
-        sum=sum+lastdigit;
-        n=n/10; 
-    }
-    return sum;
-}
 int main(){
     int n;
     cin>>n;
-    sumofdigit(n);
-    cout<< sumofdigit(n)<<endl;
+    int cnt=0;
+    for(int i=1;i<=n;i++){
+        if(n%i==0){
+            cnt++;
+        }
+    }
+    if(cnt==2)
+    cout<<"prime"<<endl;
+    else
+    cout<<"not prime"<<endl;
     return 0;
-
 }
