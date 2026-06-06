@@ -1,20 +1,18 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
-int main(){
+string decimalToBinary(int n) {
+    if (n == 0) return "0";
+    string binary = "";
+    while (n > 0) {
+        binary = char('0' + (n % 2)) + binary;
+        n /= 2;
+    }
+    return binary;
+}
+int main() {
     int n;
-    cin>>n;
-    for(int i=1;i<n;i++){
-        int sum=0;
-        if(n%i==0){
-            sum=sum+i;
-        }
-    }
-    if(sum==n){
-        cout<<"perfect num"<<emdl;
-    }
-    else
-    {
-        cout<<"not perfect num"<<endl;
-    }
+    cin >> n;
+    cout << decimalToBinary(n);
     return 0;
 }
