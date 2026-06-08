@@ -1,18 +1,14 @@
-#include <iostream>
-#include <string>
+#include<bits/stdc++.h>
 using namespace std;
-string decimalToBinary(int n) {
-    if (n == 0) return "0";
-    string binary = "";
-    while (n > 0) {
-        binary = char('0' + (n % 2)) + binary;
-        n /= 2;
-    }
-    return binary;
+int factorial(int n){
+    if(n==1)
+    return 1;
+    return n*factorial(n-1);
 }
-int main() {
+int main(){
     int n;
-    cin >> n;
-    cout << decimalToBinary(n);
+    cin>>n;
+    factorial(n);
+    cout<<factorial(n)<<endl;
     return 0;
 }

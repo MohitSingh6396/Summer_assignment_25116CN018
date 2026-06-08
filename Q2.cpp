@@ -1,16 +1,19 @@
 #include <iostream>
-#include <string>
 using namespace std;
-int binaryToDecimal(string binary) {
-    int decimal = 0;
-    for (char bit : binary) {
-        decimal = decimal * 2 + (bit - '0');
+int fibonacci(int n) {
+    if (n <= 1)
+        return n;
+    int a = 0, b = 1;
+    for (int i = 2; i <= n; i++) {
+        int c = a + b;
+        a = b;
+        b = c;
     }
-    return decimal;
+    return b;
 }
 int main() {
-    string binary;
-    cin >> binary;
-    cout << binaryToDecimal(binary);
+    int n;
+    cin >> n;
+    cout << fibonacci(n) << endl;
     return 0;
 }

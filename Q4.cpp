@@ -1,12 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-    int x,n;
-    cin>>x>>n;
-   int pow=1;
-    for(int i=1;i<=n;i++){
-        pow=pow*x;
+int reverseofnum(int n){
+    int rev=0;
+    while(n>0){
+        int lstdigit=n%10;
+        rev=rev*10+lstdigit;
+        n=n/10;
     }
-    cout<<pow<<endl;
+    return rev;
+}
+int main(){
+    int n;
+    cin>>n;
+    reverseofnum(n);
+    cout<<reverseofnum(n)<<endl;
     return 0;
 }

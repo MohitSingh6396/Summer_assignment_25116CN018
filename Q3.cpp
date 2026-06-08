@@ -1,16 +1,18 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-int countSetBits(int n) {
-    int count = 0;
-    while (n > 0) {
-        count += (n & 1); // Check if the last bit is set
-        n >>= 1;          // Right shift by 1
+int sumofdigit(int n){
+    int sum=0;
+    while(n>0){
+        int lstdigit=n%10;
+        sum=sum+lstdigit;
+        n=n/10;
     }
-    return count;
+    return sum;
 }
-int main() {
+int main(){
     int n;
-    cin >> n;
-    cout << "Number of set bits = " << countSetBits(n) << endl;
+    cin>>n;
+    sumofdigit(n);
+    cout<<sumofdigit(n)<<endl;
     return 0;
 }
