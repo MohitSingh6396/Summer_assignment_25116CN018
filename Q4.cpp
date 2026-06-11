@@ -3,24 +3,20 @@ using namespace std;
 int main(){
     int n;
     cin>>n;
-     for(int i=1;i<=n;i++){
-        if(i==1||i==n){
-        for(int j=1;j<=n;j++){
-            cout<<"*";
-        }
-        cout<<endl;
-    }
-    
-    else {
     for(int i=1;i<=n;i++){
-        if(i==1||i==n){
-            cout<<"*";
-        }
-        else if(i>1||i<n){
+        for(int j=1;j<=n-i;j++){
             cout<<" ";
+        
         }
-    }
+        for(int j=1;j<=i;j++){
+            char ch =('A'+j-1);
+            cout<<ch;
+        }
+        for(int j=i-1;j>=1;j--){
+             char ch =('A'+j-1);
+            cout<<ch;}
         cout<<endl;
-}}
+    }
     return 0;
+
 }
