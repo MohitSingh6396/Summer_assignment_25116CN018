@@ -1,17 +1,12 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
-void pyramid_pattern(int n){
-    for(int i=1;i<=n;i++){
-        for(int j=1;j<=i;j++){
-            cout<<"*";
-        }
-        cout<<endl;
-    }
+int add(int a, int b) {
+    return a + b;
 }
-
-int main(){
-    int n;
-    cin>>n;
-    pyramid_pattern(n);
+int main() {
+    int num1, num2;
+    cin >> num1 >> num2;
+    int sum = add(num1, num2);
+    cout << "Sum = " << sum << endl;
     return 0;
 }

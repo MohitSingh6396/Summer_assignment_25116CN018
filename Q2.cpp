@@ -1,17 +1,13 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-void pattern(int n){
-    for(int i=1;i<=n;i++){
-        for(int j=1;j<=i;j++){
-            cout<<j;
-        }
-        cout<<endl;
-    }
+int max_element(int num1, int num2){
+  int  maxi=max(num1,num2);
+    return maxi;
 }
-
 int main(){
-    int n;
-    cin>>n;
-    pattern(n);
+    int num1, num2;
+    cin>>num1>>num2;
+   
+    cout<<max_element(num1,num2)<<endl;
     return 0;
 }
