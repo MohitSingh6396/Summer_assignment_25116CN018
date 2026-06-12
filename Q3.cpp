@@ -1,19 +1,19 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int prime(int num){
-  int flag=0;
-  for(int i=2;i<=num;i++){
-    if(num%i==0){
-        flag++;
+int fibonacci(int n) {
+    if (n <= 1)
+        return n;
+    int a = 0, b = 1;
+    for (int i = 2; i <= n; i++) {
+        int c = a + b;
+        a = b;
+        b = c;
     }
-  }
-  if(flag==1)
-  return true;
-  return false;
+    return b;
 }
-int main(){
-    int num;
-    cin>>num;
-    cout<<prime(num)<<endl;
+int main() {
+    int n;
+    cin >> n;
+    cout << fibonacci(n) << endl;
     return 0;
 }

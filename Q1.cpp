@@ -1,12 +1,22 @@
 #include <iostream>
+#include <string>
 using namespace std;
-int add(int a, int b) {
-    return a + b;
+bool isPalindrome(string str) {
+    int left = 0, right = str.length() - 1;
+    while (left < right) {
+        if (str[left] != str[right])
+            return false;
+        left++;
+        right--;
+    }
+    return true;
 }
 int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-    int sum = add(num1, num2);
-    cout << "Sum = " << sum << endl;
+    string str;
+    cin >> str;
+    if (isPalindrome(str))
+        cout << "Palindrome";
+    else
+        cout << "Not Palindrome";
     return 0;
 }
