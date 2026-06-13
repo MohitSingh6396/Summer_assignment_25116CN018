@@ -1,30 +1,21 @@
-#include <iostream>
-#include <cmath>
+#include<bits/stdc++.h>
 using namespace std;
-
-bool isArmstrong(int num) {
-    int original = num;
-    int digits = 0;
-    int sum = 0;
-    int temp = num;
-    while (temp > 0) {
-        digits++;
-        temp /= 10;
-    }
-    temp = num;
-    while (temp > 0) {
-        int digit = temp % 10;
-        sum += pow(digit, digits);
-        temp /= 10;
-    }
-    return sum == original;
+void sum(int n,int arr[]){
+   int sum=0;
+   for(int i=0;i<n;i++){
+    sum=sum+arr[i];
+   }
+   cout<<sum<<endl;
+  int  average=sum/n;
+  cout<<average<<endl;
 }
-int main() {
+int main(){
     int n;
-    cin >> n;
-    if (isArmstrong(n))
-        cout << "Armstrong Number";
-    else
-        cout << "Not an Armstrong Number";
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    sum(n,arr);
     return 0;
 }

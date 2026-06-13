@@ -1,19 +1,22 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-int fibonacci(int n) {
-    if (n <= 1)
-        return n;
-    int a = 0, b = 1;
-    for (int i = 2; i <= n; i++) {
-        int c = a + b;
-        a = b;
-        b = c;
+void largest(int n,int arr[]){
+    int largest=arr[0];
+    int smallest=arr[0];
+for(int i=0;i<n;i++){
+    largest=max(largest,arr[i]);
+    smallest=min(smallest,arr[i]);
     }
-    return b;
+    cout<<largest<<endl;
+    cout<<smallest<<endl;
 }
-int main() {
+int main(){
     int n;
-    cin >> n;
-    cout << fibonacci(n) << endl;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    largest(n,arr);
     return 0;
 }

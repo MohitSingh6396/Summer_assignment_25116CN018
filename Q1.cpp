@@ -1,22 +1,14 @@
-#include <iostream>
-#include <string>
+#include<bits/stdc++.h>
 using namespace std;
-bool isPalindrome(string str) {
-    int left = 0, right = str.length() - 1;
-    while (left < right) {
-        if (str[left] != str[right])
-            return false;
-        left++;
-        right--;
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
     }
-    return true;
-}
-int main() {
-    string str;
-    cin >> str;
-    if (isPalindrome(str))
-        cout << "Palindrome";
-    else
-        cout << "Not Palindrome";
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<endl;
+    }
     return 0;
 }
