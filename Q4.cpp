@@ -1,26 +1,23 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-void count(int n,int arr[]){
-    int cnteven=0;
-    int cntodd=0;
-  for(int i=0;i<n;i++){
-    if(arr[i]%2==0){
-        cnteven++;
+int duplicate_element(int n, int arr[]) {
+    for (int i = 0; i < n; i++) {
+        int target = arr[i];
+        for (int j = i + 1; j < n; j++) {
+            if (target == arr[j]) {
+                return target;
+            }
+        }
     }
-    else{
-        cntodd++;
-    }
-    }
-    cout<<cnteven<<endl;
-    cout<<cntodd<<endl;
+    return -1;
 }
-int main(){
+int main() {
     int n;
-    cin>>n;
+    cin >> n;
     int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
-   count(n,arr);
+    cout << duplicate_element(n, arr) << endl;
     return 0;
 }

@@ -1,14 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
-void largest(int n,int arr[]){
+int sec_largest(int n,int arr[]){
     int largest=arr[0];
-    int smallest=arr[0];
+    int sec_largest=arr[0];
 for(int i=0;i<n;i++){
     largest=max(largest,arr[i]);
-    smallest=min(smallest,arr[i]);
     }
-    cout<<largest<<endl;
-    cout<<smallest<<endl;
+    for(int i=0;i<n;i++){
+        if(arr[i]<largest){
+    sec_largest=max(sec_largest,arr[i]);
+    }
+}
+    return sec_largest;
 }
 int main(){
     int n;
@@ -17,6 +20,6 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    largest(n,arr);
+    cout<<sec_largest(n,arr)<<endl;
     return 0;
 }

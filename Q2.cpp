@@ -1,13 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-void sum(int n,int arr[]){
-   int sum=0;
+int frequency_element(int n,int target,int arr[]){
+    int cnt=0;
    for(int i=0;i<n;i++){
-    sum=sum+arr[i];
+    if(arr[i]==target){
+        cnt++;
+    }
    }
-   cout<<sum<<endl;
-  int  average=sum/n;
-  cout<<average<<endl;
+   return cnt;
+
 }
 int main(){
     int n;
@@ -16,6 +17,8 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    sum(n,arr);
+     int target;
+    cin>>target;
+    cout<<frequency_element(n,target,arr)<<endl;
     return 0;
 }
