@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <set>
+using namespace std;
+vector<int> removeDuplicates(int arr[], int n) {
+    set<int> s(arr, arr + n);
+    return vector<int>(s.begin(), s.end());
+}
+int main() {
+    int arr[] = {1, 2, 2, 3, 4, 4, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    vector<int> result = removeDuplicates(arr, n);
+    cout << "Array after removing duplicates: ";
+    for (int x : result) {
+        cout << x << " ";
+    }
+    return 0;
+}
