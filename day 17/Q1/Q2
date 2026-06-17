@@ -1,0 +1,21 @@
+#include <iostream>
+#include <set>
+using namespace std;
+void unionArray(int arr1[], int n1, int arr2[], int n2) {
+    set<int> s;
+    for (int i = 0; i < n1; i++)
+        s.insert(arr1[i]);
+    for (int i = 0; i < n2; i++)
+        s.insert(arr2[i]);
+    cout << "Union: ";
+    for (int x : s)
+        cout << x << " ";
+}
+int main() {
+    int arr1[] = {1, 2, 3, 4, 5};
+    int arr2[] = {1, 2, 3, 6, 7};
+    int n1 = sizeof(arr1) / sizeof(arr1[0]);
+    int n2 = sizeof(arr2) / sizeof(arr2[0]);
+    unionArray(arr1, n1, arr2, n2);
+    return 0;
+}
