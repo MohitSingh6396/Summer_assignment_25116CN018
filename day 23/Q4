@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+char maxOccurringChar(string str) {
+    int freq[256] = {0};
+    for (char ch : str) {
+        freq[ch]++;
+    }
+    int maxFreq = 0;
+    char result;
+    for (char ch : str) {
+        if (freq[ch] > maxFreq) {
+            maxFreq = freq[ch];
+            result = ch;
+        }
+    }
+    return result;
+}
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << "Maximum occurring character: "
+         << maxOccurringChar(str);
+    return 0;
+}
