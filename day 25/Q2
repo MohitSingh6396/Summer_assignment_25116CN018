@@ -1,0 +1,22 @@
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+void commonCharacters(string s1, string s2) {
+    unordered_set<char> st(s1.begin(), s1.end());
+
+    for (char ch : s2) {
+        if (st.count(ch)) {
+            cout << ch << " ";
+            st.erase(ch); // avoid duplicates
+        }
+    }
+}
+
+int main() {
+    string s1 = "hello";
+    string s2 = "world";
+
+    commonCharacters(s1, s2);
+
+    return 0;
+}
