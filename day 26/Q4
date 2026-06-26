@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+int question1()
+{
+    int ans;
+    cout << "\n1. What is the capital of India?" << endl;
+    cout << "1. Mumbai\n2. New Delhi\n3. Kolkata\n4. Chennai" << endl;
+    cout << "Enter your answer: ";
+    cin >> ans;
+
+    if (ans == 2)
+        return 1;
+    else
+        return 0;
+}
+int question2()
+{
+    int ans;
+    cout << "\n2. Which language is used for C++ programming?" << endl;
+    cout << "1. HTML\n2. CSS\n3. C++\n4. SQL" << endl;
+    cout << "Enter your answer: ";
+    cin >> ans;
+
+    if (ans == 3)
+        return 1;
+    else
+        return 0;
+}
+int question3()
+{
+    int ans;
+    cout << "\n3. How many days are there in a week?" << endl;
+    cout << "1. 5\n2. 6\n3. 7\n4. 8" << endl;
+    cout << "Enter your answer: ";
+    cin >> ans;
+
+    if (ans == 3)
+        return 1;
+    else
+        return 0;
+}
+void showResult(int score)
+{
+    cout << "\n===== Quiz Result =====" << endl;
+    cout << "Your Score: " << score << " / 3" << endl;
+
+    if (score == 3)
+        cout << "Excellent!" << endl;
+    else if (score == 2)
+        cout << "Good Job!" << endl;
+    else
+        cout << "Keep Practicing!" << endl;
+}
+
+int main()
+{
+    int score = 0;
+
+    cout << "===== Welcome to the Quiz Application =====" << endl;
+
+    score += question1();
+    score += question2();
+    score += question3();
+
+    showResult(score);
+
+    return 0;
+}
