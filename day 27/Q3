@@ -1,0 +1,108 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Salary {
+    int empID;
+    string name;
+    float basic, hra, da, total;
+};
+
+Salary s[100];
+int count =0;
+void addSalary() {
+    cout << "\nEnter Employee ID: ";
+    cin >> s[count].empID;
+    cin.ignore();
+
+    cout << "Enter Employee Name: ";
+    getline(cin, s[count].name);
+
+    cout << "Enter Basic Salary: ";
+    cin >> s[count].basic;
+
+    cout << "Enter HRA: ";
+    cin >> s[count].hra;
+
+    cout << "Enter DA: ";
+    cin >> s[count].da;
+
+    s[count].total = s[count].basic + s[count].hra + s[count].da;
+
+    count++;
+    cout << "Salary Record Added Successfully!\n";
+}
+void displaySalary() {
+    if (count == 0) {
+        cout << "\nNo Salary Records Found!\n";
+        return;
+    }
+
+    cout << "\n===== Salary Records =====\n";
+    for (int i = 0; i < count; i++) {
+        cout << "Employee ID : " << s[i].empID << endl;
+        cout << "Name        : " << s[i].name << endl;
+        cout << "Basic Salary: " << s[i].basic << endl;
+        cout << "HRA         : " << s[i].hra << endl;
+        cout << "DA          : " << s[i].da << endl;
+        cout << "Total Salary: " << s[i].total << endl;
+        cout << "----------------------------\n";
+    }
+}
+void searchSalary() {
+    int id;
+    bool found = false;
+
+    cout << "\nEnter Employee ID to Search: ";
+    cin >> id;
+
+    for (int i = 0; i < count; i++) {
+        if (s[i].empID == id) {
+            cout << "\nSalary Record Found\n";
+            cout << "Employee ID : " << s[i].empID << endl;
+            cout << "Name        : " << s[i].name << endl;
+            cout << "Basic Salary: " << s[i].basic << endl;
+            cout << "HRA         : " << s[i].hra << endl;
+            cout << "DA          : " << s[i].da << endl;
+            cout << "Total Salary: " << s[i].total << endl;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+        cout << "Salary Record Not Found!\n";
+}
+int main() {
+    int choice;
+
+    do {
+        cout << "\n===== Salary Management System =====\n";
+        cout << "1. Add Salary Record\n";
+        cout << "2. Display Salary Records\n";
+        cout << "3. Search Salary Record\n";
+        cout << "4. Exit\n";
+        cout << "Enter Your Choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                addSalary();
+                break;
+            case 2:
+                displaySalary();
+                break;
+            case 3:
+                searchSalary();
+                break;
+            case 4:
+                cout << "Program Exited.\n";
+                break;
+            default:
+                cout << "Invalid Choice!\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
