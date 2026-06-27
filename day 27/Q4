@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Student {
+    int rollNo;
+    string name;
+    int m1, m2, m3, m4, m5;
+    int total;
+    float percentage;
+    char grade;
+};
+
+Student s;
+void calculateResult() {
+    s.total = s.m1 + s.m2 + s.m3 + s.m4 + s.m5;
+    s.percentage = s.total / 5.0;
+
+    if (s.percentage >= 90)
+        s.grade = 'A';
+    else if (s.percentage >= 75)
+        s.grade = 'B';
+    else if (s.percentage >= 60)
+        s.grade = 'C';
+    else if (s.percentage >= 40)
+        s.grade = 'D';
+    else
+        s.grade = 'F';
+}
+void inputStudent() {
+    cout << "Enter Roll Number: ";
+    cin >> s.rollNo;
+    cin.ignore();
+
+    cout << "Enter Student Name: ";
+    getline(cin, s.name);
+
+    cout << "Enter Marks of 5 Subjects:\n";
+    cin >> s.m1 >> s.m2 >> s.m3 >> s.m4 >> s.m5;
+
+    calculateResult();
+}
+void displayMarksheet() {
+    cout << "\n===== STUDENT MARKSHEET =====\n";
+    cout << "Roll Number : " << s.rollNo << endl;
+    cout << "Name        : " << s.name << endl;
+    cout << "Subject 1   : " << s.m1 << endl;
+    cout << "Subject 2   : " << s.m2 << endl;
+    cout << "Subject 3   : " << s.m3 << endl;
+    cout << "Subject 4   : " << s.m4 << endl;
+    cout << "Subject 5   : " << s.m5 << endl;
+    cout << "Total Marks : " << s.total << endl;
+    cout << "Percentage  : " << s.percentage << "%" << endl;
+    cout << "Grade       : " << s.grade << endl;
+}
+int main() {
+    inputStudent();
+    displayMarksheet();
+
+    return 0;
+}
