@@ -1,0 +1,94 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Employee {
+    int id;
+    string name;
+    float salary;
+};
+
+Employee emp[100];
+int count = 0;
+void addEmployee() {
+    cout << "\nEnter Employee ID: ";
+    cin >> emp[count].id;
+    cin.ignore();
+
+    cout << "Enter Employee Name: ";
+    getline(cin, emp[count].name);
+
+    cout << "Enter Salary: ";
+    cin >> emp[count].salary;
+
+    count++;
+    cout << "Employee Record Added Successfully!\n";
+}
+void displayEmployees() {
+    if (count == 0) {
+        cout << "\nNo Employee Records Found!\n";
+        return;
+    }
+
+    cout << "\nEmployee Records\n";
+    cout << "-----------------------------\n";
+    for (int i = 0; i < count; i++) {
+        cout << "Employee ID : " << emp[i].id << endl;
+        cout << "Name        : " << emp[i].name << endl;
+        cout << "Salary      : " << emp[i].salary << endl;
+        cout << "-----------------------------\n";
+    }
+}
+void searchEmployee() {
+    int id;
+    bool found = false;
+
+    cout << "\nEnter Employee ID to Search: ";
+    cin >> id;
+
+    for (int i = 0; i < count; i++) {
+        if (emp[i].id == id) {
+            cout << "\nEmployee Found\n";
+            cout << "Employee ID : " << emp[i].id << endl;
+            cout << "Name        : " << emp[i].name << endl;
+            cout << "Salary      : " << emp[i].salary << endl;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+        cout << "Employee Record Not Found!\n";
+}
+int main() {
+    int choice;
+
+    do {
+        cout << "\n===== Employee Management System =====\n";
+        cout << "1. Add Employee\n";
+        cout << "2. Display Employees\n";
+        cout << "3. Search Employee\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                addEmployee();
+                break;
+            case 2:
+                displayEmployees();
+                break;
+            case 3:
+                searchEmployee();
+                break;
+            case 4:
+                cout << "Exiting Program...\n";
+                break;
+            default:
+                cout << "Invalid Choice!\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
