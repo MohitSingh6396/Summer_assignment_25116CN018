@@ -1,0 +1,176 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int MAX = 100;
+
+int bookID[MAX];
+string title[MAX];
+string author[MAX];
+bool issued[MAX];
+
+int totalBooks = 0;
+void addBook()
+{
+    if (totalBooks >= MAX)
+    {
+        cout << "Library is Full!\n";
+        return;
+    }
+
+    cout << "\nEnter Book ID: ";
+    cin >> bookID[totalBooks];
+    cin.ignore();
+
+    cout << "Enter Book Title: ";
+    getline(cin, title[totalBooks]);
+
+    cout << "Enter Author Name: ";
+    getline(cin, author[totalBooks]);
+
+    issued[totalBooks] = false;
+    totalBooks++;
+
+    cout << "Book Added Successfully!\n";
+}
+void displayBooks()
+{
+    if (totalBooks == 0)
+    {
+        cout << "\nNo Books Available.\n";
+        return;
+    }
+
+    cout << "\n========== LIBRARY BOOKS ==========\n";
+
+    for (int i = 0; i < totalBooks; i++)
+    {
+        cout << "\nBook " << i + 1 << endl;
+        cout << "Book ID : " << bookID[i] << endl;
+        cout << "Title   : " << title[i] << endl;
+        cout << "Author  : " << author[i] << endl;
+        cout << "Status  : " << (issued[i] ? "Issued" : "Available") << endl;
+    }
+}
+void searchBook()
+{
+    int id;
+    cout << "\nEnter Book ID: ";
+    cin >> id;
+
+    for (int i = 0; i < totalBooks; i++)
+    {
+        if (bookID[i] == id)
+        {
+            cout << "\nBook Found!\n";
+            cout << "Title  : " << title[i] << endl;
+            cout << "Author : " << author[i] << endl;
+            cout << "Status : " << (issued[i] ? "Issued" : "Available") << endl;
+            return;
+        }
+    }
+
+    cout << "Book Not Found!\n";
+}
+void issueBook()
+{
+    int id;
+    cout << "\nEnter Book ID to Issue: ";
+    cin >> id;
+
+    for (int i = 0; i < totalBooks; i++)
+    {
+        if (bookID[i] == id)
+        {
+            if (issued[i])
+                cout << "Book is Already Issued!\n";
+            else
+            {
+                issued[i] = true;
+                cout << "Book Issued Successfully!\n";
+            }
+            return;
+        }
+    }
+
+    cout << "Book Not Found!\n";
+}
+void returnBook()
+{
+    int id;
+    cout << "\nEnter Book ID to Return: ";
+    cin >> id;
+
+    for (int i = 0; i < totalBooks; i++)
+    {
+        if (bookID[i] == id)
+        {
+            if (!issued[i])
+                cout << "Book is Already Available!\n";
+            else
+            {
+                issued[i] = false;
+                cout << "Book Returned Successfully!\n";
+            }
+            return;
+        }
+    }
+
+    cout << "Book Not Found!\n";
+}
+void menu()
+{
+    cout << "\n==============================";
+    cout << "\n MINI LIBRARY MANAGEMENT";
+    cout << "\n==============================";
+    cout << "\n1. Add Book";
+    cout << "\n2. Display Books";
+    cout << "\n3. Search Book";
+    cout << "\n4. Issue Book";
+    cout << "\n5. Return Book";
+    cout << "\n6. Exit";
+    cout << "\nEnter Your Choice: ";
+}
+int main()
+{
+    int choice;
+
+    do
+    {
+        menu();
+        cin >> choice;
+
+        switch(choice)
+        {
+            case 1:
+                addBook();
+                break;
+
+            case 2:
+                displayBooks();
+                break;
+
+            case 3:
+                searchBook();
+                break;
+
+            case 4:
+                issueBook();
+                break;
+
+            case 5:
+                returnBook();
+                break;
+
+            case 6:
+                cout << "\nThank You for Using Mini Library System!\n";
+                break;
+
+            default:
+                cout << "\nInvalid Choice! Try Again.\n";
+        }
+
+    } while(choice != 6);
+
+    return 0;
+}
