@@ -1,0 +1,185 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int MAX = 100;
+
+int rollNo[MAX];
+string name[MAX];
+string course[MAX];
+float marks[MAX];
+int totalStudents = 0;
+void addStudent()
+{
+    if (totalStudents >= MAX)
+    {
+        cout << "Record is full!\n";
+        return;
+    }
+
+    cout << "\nEnter Roll Number: ";
+    cin >> rollNo[totalStudents];
+    cin.ignore();
+
+    cout << "Enter Student Name: ";
+    getline(cin, name[totalStudents]);
+
+    cout << "Enter Course: ";
+    getline(cin, course[totalStudents]);
+
+    cout << "Enter Marks: ";
+    cin >> marks[totalStudents];
+
+    totalStudents++;
+
+    cout << "Student record added successfully.\n";
+}
+void displayStudents()
+{
+    if (totalStudents == 0)
+    {
+        cout << "\nNo records found.\n";
+        return;
+    }
+
+    cout << "\n===== Student Records =====\n";
+
+    for (int i = 0; i < totalStudents; i++)
+    {
+        cout << "\nStudent " << i + 1 << endl;
+        cout << "Roll No : " << rollNo[i] << endl;
+        cout << "Name    : " << name[i] << endl;
+        cout << "Course  : " << course[i] << endl;
+        cout << "Marks   : " << marks[i] << endl;
+    }
+}
+void searchStudent()
+{
+    int roll;
+    cout << "\nEnter Roll Number to Search: ";
+    cin >> roll;
+
+    for (int i = 0; i < totalStudents; i++)
+    {
+        if (rollNo[i] == roll)
+        {
+            cout << "\nStudent Found!\n";
+            cout << "Roll No : " << rollNo[i] << endl;
+            cout << "Name    : " << name[i] << endl;
+            cout << "Course  : " << course[i] << endl;
+            cout << "Marks   : " << marks[i] << endl;
+            return;
+        }
+    }
+
+    cout << "Student record not found.\n";
+}
+void updateStudent()
+{
+    int roll;
+    cout << "\nEnter Roll Number to Update: ";
+    cin >> roll;
+    cin.ignore();
+
+    for (int i = 0; i < totalStudents; i++)
+    {
+        if (rollNo[i] == roll)
+        {
+            cout << "Enter New Name: ";
+            getline(cin, name[i]);
+
+            cout << "Enter New Course: ";
+            getline(cin, course[i]);
+
+            cout << "Enter New Marks: ";
+            cin >> marks[i];
+
+            cout << "Record updated successfully.\n";
+            return;
+        }
+    }
+
+    cout << "Student record not found.\n";
+}
+void deleteStudent()
+{
+    int roll;
+    cout << "\nEnter Roll Number to Delete: ";
+    cin >> roll;
+
+    for (int i = 0; i < totalStudents; i++)
+    {
+        if (rollNo[i] == roll)
+        {
+            for (int j = i; j < totalStudents - 1; j++)
+            {
+                rollNo[j] = rollNo[j + 1];
+                name[j] = name[j + 1];
+                course[j] = course[j + 1];
+                marks[j] = marks[j + 1];
+            }
+
+            totalStudents--;
+            cout << "Student record deleted successfully.\n";
+            return;
+        }
+    }
+
+    cout << "Student record not found.\n";
+}
+void menu()
+{
+    cout << "\n==============================";
+    cout << "\n STUDENT RECORD MANAGEMENT";
+    cout << "\n==============================";
+    cout << "\n1. Add Student";
+    cout << "\n2. Display Students";
+    cout << "\n3. Search Student";
+    cout << "\n4. Update Student";
+    cout << "\n5. Delete Student";
+    cout << "\n6. Exit";
+    cout << "\nEnter your choice: ";
+}
+int main()
+{
+    int choice;
+
+    do
+    {
+        menu();
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1:
+                addStudent();
+                break;
+
+            case 2:
+                displayStudents();
+                break;
+
+            case 3:
+                searchStudent();
+                break;
+
+            case 4:
+                updateStudent();
+                break;
+
+            case 5:
+                deleteStudent();
+                break;
+
+            case 6:
+                cout << "\nThank you for using the Student Record Management System!\n";
+                break;
+
+            default:
+                cout << "\nInvalid choice! Try again.\n";
+        }
+
+    } while (choice != 6);
+
+    return 0;
+}
