@@ -1,0 +1,101 @@
+#include <iostream>
+using namespace std;
+void add()
+{
+    float a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    cout << "Result = " << a + b << endl;
+}
+void subtract()
+{
+    float a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    cout << "Result = " << a - b << endl;
+}
+void multiply()
+{
+    float a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    cout << "Result = " << a * b << endl;
+}
+void divide()
+{
+    float a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    if (b == 0)
+        cout << "Division by zero is not possible!" << endl;
+    else
+        cout << "Result = " << a / b << endl;
+}
+void modulus()
+{
+    int a, b;
+    cout << "Enter two integers: ";
+    cin >> a >> b;
+
+    if (b == 0)
+        cout << "Modulus by zero is not possible!" << endl;
+    else
+        cout << "Result = " << a % b << endl;
+}
+void menu()
+{
+    cout << "\n============================";
+    cout << "\n   MENU DRIVEN CALCULATOR";
+    cout << "\n============================";
+    cout << "\n1. Addition";
+    cout << "\n2. Subtraction";
+    cout << "\n3. Multiplication";
+    cout << "\n4. Division";
+    cout << "\n5. Modulus";
+    cout << "\n6. Exit";
+    cout << "\nEnter your choice: ";
+}
+int main()
+{
+    int choice;
+
+    do
+    {
+        menu();
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1:
+                add();
+                break;
+
+            case 2:
+                subtract();
+                break;
+
+            case 3:
+                multiply();
+                break;
+
+            case 4:
+                divide();
+                break;
+
+            case 5:
+                modulus();
+                break;
+
+            case 6:
+                cout << "Thank you for using the calculator!" << endl;
+                break;
+
+            default:
+                cout << "Invalid choice! Please try again." << endl;
+        }
+
+    } while (choice != 6);
+
+    return 0;
+}
